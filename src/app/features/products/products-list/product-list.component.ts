@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {Observable} from 'rxjs';
-import {CartCoordinator} from '../store/cart/cart.coordinator';
-import {Product} from '../store/product/product.actions';
-import {ProductCoordinator} from "../store/product/product.coordinator";
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CartCoordinator } from '../../../features/cart/store/cart.coordinator';
+import { Product } from '../store/product.actions';
+import { ProductCoordinator } from '../store/product.coordinator';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent {
   public products$: Observable<Product[]>;

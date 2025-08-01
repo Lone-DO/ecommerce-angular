@@ -1,16 +1,15 @@
-import {Injectable} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs';
-import {AppState} from '../index';
-import {addToCart, CartItem, clearCart} from './cart.actions';
-import {selectCartItems, selectCartTotal} from './cart.selectors';
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { type AppState } from '../../../store';
+import { addToCart, CartItem, clearCart } from './cart.actions';
+import { selectCartItems, selectCartTotal } from './cart.selectors';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartCoordinator {
-  constructor(private store: Store<AppState>) {
-  }
+  constructor(private store: Store<AppState>) {}
 
   selectCartItems$(): Observable<CartItem[]> {
     return this.store.select(selectCartItems);
@@ -21,7 +20,7 @@ export class CartCoordinator {
   }
 
   addToCart(product: { id: number; name: string; price: number }): void {
-    this.store.dispatch(addToCart({product}));
+    this.store.dispatch(addToCart({ product }));
   }
 
   clearCart(): void {

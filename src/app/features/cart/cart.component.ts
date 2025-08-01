@@ -1,22 +1,22 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {CartItem} from '../store/cart/cart.actions';
-import {CartCoordinator} from '../store/cart/cart.coordinator';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { CartItem } from './store/cart.actions';
+import { CartCoordinator } from './store/cart.coordinator';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartComponent {
-  items: CartItem[] = []
+  items: CartItem[] = [];
   total$: Observable<number> = of(0);
 
   constructor(private cartCoordinator: CartCoordinator) {
     this.total$ = this.cartCoordinator.selectCartTotal$();
-    this.cartCoordinator.selectCartItems$().subscribe(items => {
-      this.items = items
+    this.cartCoordinator.selectCartItems$().subscribe((items) => {
+      this.items = items;
     });
   }
 

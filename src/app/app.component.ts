@@ -1,12 +1,12 @@
-import {ChangeDetectionStrategy, Component, OnDestroy} from '@angular/core';
-import {CartItem} from "./store/cart/cart.actions";
-import {CartCoordinator} from './store/cart/cart.coordinator';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { CartItem } from './features/cart/store/cart.actions';
+import { CartCoordinator } from './features/cart/store/cart.coordinator';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnDestroy {
   title = 'Take Home Challenge';
@@ -15,9 +15,9 @@ export class AppComponent implements OnDestroy {
   cartItems: CartItem[] = [];
 
   constructor(public cartCoordinator: CartCoordinator) {
-    this.cart$$ = this.cartCoordinator.selectCartItems$().subscribe(items => {
+    this.cart$$ = this.cartCoordinator.selectCartItems$().subscribe((items) => {
       this.cartItems = items;
-    })
+    });
   }
 
   ngOnDestroy(): void {
