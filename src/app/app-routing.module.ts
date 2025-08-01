@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './features/cart/cart.component';
 import { ProductListComponent } from './features/products/products-list/product-list.component';
 
 export const routes: Routes = [
   { path: '', component: ProductListComponent },
-  { path: 'cart', component: CartComponent },
+  {
+    path: 'cart',
+    loadChildren: async () => {
+      const m = await import('./features/cart/cart.module');
+      return m.CartModule;
+    },
+  },
 ];
 
 @NgModule({

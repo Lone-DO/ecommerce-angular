@@ -6,7 +6,6 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartModule } from './features/cart/cart.module';
 import { reducers } from './store';
 import { ProductEffects } from './features/products/store/product.effects';
 import { ProductsModule } from './features/products/products.module';
@@ -17,7 +16,6 @@ import { ProductsModule } from './features/products/products.module';
     BrowserModule,
     AppRoutingModule,
     ProductsModule,
-    CartModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductEffects]),
