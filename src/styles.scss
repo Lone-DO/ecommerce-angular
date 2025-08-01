@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  background-color: #F6F6F6;
+}
+
+.page-title {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+}
+
+div.add-to-cart-button,
+button {
+  background-color: #006AFF;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+a.button-link {
+  color: #006AFF;
+  text-decoration: none;
+}
+
+a.button-link:hover {
+  text-decoration: underline;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

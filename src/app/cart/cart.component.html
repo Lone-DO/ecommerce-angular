@@ -1,0 +1,30 @@
+<h2 class="page-title">Shopping Cart</h2>
+
+<div *ngIf="items?.length === 0">
+  <p class="empty-state">Your cart is empty.</p>
+  <a class="buy-button button-link"
+    [routerLink]="['/']">
+    Search Products
+  </a>
+</div>
+
+<ng-container *ngIf="items.length > 0">
+  <div class="cart-items">
+    <ul>
+      <li *ngFor="let item of items" class="cart-item">
+        {{ item.name }} - {{ item.price | currency }} (Qty: {{ item.quantity }})
+      </li>
+    </ul>
+  </div>
+
+  <div class="checkout">
+    <h3>Total: {{ total$ | async | currency }}</h3>
+
+    <button class="buy-button"
+      (click)="buyNow()">
+      Proceed to checkout
+    </button>
+
+  </div>
+</ng-container>
+

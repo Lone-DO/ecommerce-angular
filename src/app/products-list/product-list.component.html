@@ -1,0 +1,19 @@
+<h2 class="page-title">Products</h2>
+
+<div *ngIf="loading$ | async" class="loading">
+  Loading products...
+</div>
+
+<div *ngIf="error$ | async as error" class="error">
+  Error loading products: {{ error }}
+</div>
+
+<div class="product-list" *ngIf="!(loading$ | async) && !(error$ | async)">
+  <div *ngFor="let product of products$ | async" class="product-item">
+    <h3 class="product-title">{{ product.title }}</h3>
+    <img [src]="product.image">
+    <p>{{ generateShorterText(product.description) }}</p>
+    <p>{{ product.price | currency }}</p>
+    <div class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</div>
+  </div>
+</div>
