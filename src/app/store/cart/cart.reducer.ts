@@ -1,30 +1,34 @@
-import {createReducer, on} from '@ngrx/store';
-import {addToCart, CartItem, clearCart} from './cart.actions';
+import { createReducer, on } from '@ngrx/store';
+import { addToCart, CartItem, clearCart } from './cart.actions';
 
 export interface CartState {
   items: CartItem[];
 }
 
 export const initialState: CartState = {
-  items: []
+  items: [],
 };
 
 export const cartReducer = createReducer(
   initialState,
-  on(addToCart, (state, {product}) => {
-    const existingItem = state.items.find(item => item === product);
+  on(addToCart, (state, { product }) => {
+    let items = state.items;
+    const index = state.items.findIndex((item) => item.id === product.id);
 
-    if (existingItem) {
-      existingItem.quantity += 1;
-      return state;
+    if (index < 0) {
+      items = [...state.items, { ...product, quantity: 1 }];
     } else {
-      state.items.push({...product, quantity: 1});
-      return state;
+      const updated = [...state.items];
+      const target: CartItem = state.items[index];
+      /** Add Argument for reducing or increasing quantity */
+      updated[index] = { ...target, quantity: target.quantity + 1 };
+      items = updated;
     }
+    return { ...state, items };
   }),
 
   on(clearCart, (state) => ({
     ...state,
-    items: []
-  })),
+    items: [],
+  }))
 );
