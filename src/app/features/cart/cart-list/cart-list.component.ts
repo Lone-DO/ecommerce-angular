@@ -1,15 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { CartItem } from './store/cart.actions';
-import { CartCoordinator } from './store/cart.coordinator';
-
+import { CartItem } from '../store/cart.actions';
+import { CartCoordinator } from '../store/cart.coordinator';
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss'],
+  selector: 'app-cart-list',
+  templateUrl: './cart-list.component.html',
+  styleUrls: ['./cart-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CartComponent {
+export class CartListComponent {
   items: CartItem[] = [];
   total$: Observable<number> = of(0);
 

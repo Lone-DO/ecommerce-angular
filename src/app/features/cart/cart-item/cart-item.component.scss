@@ -1,0 +1,21 @@
+.cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.cart-item p {
+  margin-bottom: 0;
+  font-size: 1em;
+  color: #666;
+}
