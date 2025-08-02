@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { reducers } from './store';
 import { ProductEffects } from './features/products/store/product.effects';
 import { ProductsModule } from './features/products/products.module';
+import { ToastComponent } from './core/components/toast/toast.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ToastComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

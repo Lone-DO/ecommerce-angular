@@ -314,13 +314,13 @@
   <nav>
     <ul class="nav-links">
       <li><a routerLink="/">Products</a></li>
-      <li><a routerLink="/cart">Cart ({{ cartItems?.length }})</a></li>
+      <li><a routerLink="/cart">Cart ({{ cartItems.length }})</a></li>
     </ul>
   </nav>
 </div>
 
 <div class="content" role="main">
-
+  <app-toast *ngFor="let toast of toastMessages" [toast]='toast' (expired)='clearToast($event)'></app-toast>
   <!-- Highlight Card -->
   <div class="card highlight-card card-small">
 

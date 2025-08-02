@@ -4,13 +4,16 @@ import {
   productReducer,
   ProductState,
 } from './features/products/store/product.reducer';
+import { toastReducer, ToastState } from './core/store/toast/toast.reducer';
 
 export interface AppState {
   cart: CartState;
+  toast: ToastState;
   product: ProductState;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   cart: cartReducer,
   product: productReducer,
+  toast: toastReducer,
 };

@@ -1,0 +1,4 @@
+<dialog *ngIf="toast" #dialog open [attr.data-type]="toast.mode">
+  <h3>{{ toast.message }}</h3>
+  <button (click)="dismiss()">dismiss</button>
+</dialog>
