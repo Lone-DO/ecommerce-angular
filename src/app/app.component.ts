@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
-import { CartItem } from './features/cart/store/cart.actions';
-import { CartCoordinator } from './features/cart/store/cart.coordinator';
 import { ToastCoordinator } from './core/store/toast/toast.coordinator';
 import { iToastItem } from './core/store/toast/toast.actions';
 
@@ -12,19 +10,12 @@ import { iToastItem } from './core/store/toast/toast.actions';
 })
 export class AppComponent implements OnDestroy {
   title = 'Take Home Challenge';
-  cart$$: any;
+
   toast$$: any;
 
-  cartItems: CartItem[] = [];
   toastMessages: iToastItem[] = [];
 
-  constructor(
-    public cartCoordinator: CartCoordinator,
-    public toastCoordinator: ToastCoordinator
-  ) {
-    this.cart$$ = this.cartCoordinator.selectCartItems$().subscribe((items) => {
-      this.cartItems = items;
-    });
+  constructor(public toastCoordinator: ToastCoordinator) {
     this.toast$$ = this.toastCoordinator
       .selectMessages$()
       .subscribe((messages) => {
@@ -37,7 +28,6 @@ export class AppComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.cart$$.unsubscribe();
     this.toast$$.unsubscribe();
   }
 }
