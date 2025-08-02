@@ -1,8 +1,12 @@
-.toolbar {
-  position: sticky;
+:host {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1;
+  position: sticky;
+}
+
+.toolbar {
   height: 60px;
   display: flex;
   align-items: center;
