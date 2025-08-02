@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../store/product.actions';
 import { ProductCoordinator } from '../store/product.coordinator';
+import { type iProduct } from '../models';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +9,7 @@ import { ProductCoordinator } from '../store/product.coordinator';
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent {
-  public products$: Observable<Product[]>;
+  public products$: Observable<iProduct[]>;
   public loading$: Observable<boolean>;
   public error$: Observable<any>;
 

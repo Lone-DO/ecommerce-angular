@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ProductInterface } from '../models/product.model';
 import { type AppState } from '../../../store';
 
 import { loadProducts } from './product.actions';
@@ -10,6 +9,7 @@ import {
   selectProductsError,
   selectProductsLoading,
 } from './product.selectors';
+import { type iProduct } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ import {
 export class ProductCoordinator {
   constructor(private store: Store<AppState>) {}
 
-  selectProducts$(): Observable<ProductInterface[]> {
+  selectProducts$(): Observable<iProduct[]> {
     return this.store.select(selectAllProducts);
   }
 

@@ -1,15 +1,7 @@
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-}
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { type iProduct } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -17,12 +9,9 @@ export interface Product {
 export class ProductService {
   private apiUrl = 'https://fakestoreapi.com/products';
 
-  constructor(
-    private http: HttpClient,
-  ) {
-  }
+  constructor(private http: HttpClient) {}
 
-  fetchProductsFromApi$(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+  fetchProductsFromApi$(): Observable<iProduct[]> {
+    return this.http.get<iProduct[]>(this.apiUrl);
   }
 }

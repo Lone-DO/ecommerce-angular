@@ -1,15 +1,19 @@
-<h2 class="page-title">Products</h2>
+<section>
+  <header>
+    <h2 class="page-title">Products</h2>
+  </header>
 
-<div *ngIf="loading$ | async" class="loading">Loading products...</div>
+  <span *ngIf="loading$ | async" class="loading">Loading products...</span>
 
-<div *ngIf="error$ | async as error" class="error">
-  Error loading products: {{ error }}
-</div>
+  <span *ngIf="error$ | async as error" class="error">
+    Error loading products: {{ error }}
+  </span>
 
-<div class="product-list" *ngIf="!(loading$ | async) && !(error$ | async)">
-  <app-product-item
-    *ngFor="let product of products$ | async"
-    [product]="product"
-  >
-  </app-product-item>
-</div>
+  <div class="product-list" *ngIf="!(loading$ | async) && !(error$ | async)">
+    <app-product-item
+      *ngFor="let product of products$ | async"
+      [product]="product"
+    >
+    </app-product-item>
+  </div>
+</section>

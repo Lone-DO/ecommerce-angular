@@ -8,26 +8,21 @@
   align-self: start;
   justify-self: start;
 
-  img {
+  &__title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.2em;
+  }
+
+  &__img {
     width: 100px;
     height: 100px;
   }
-}
 
-.product-item h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: #333;
-  font-size: 1.2em;
-}
-
-.product-item h3 a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.product-item p {
-  margin-bottom: 15px;
-  color: #666;
-  font-size: 0.9em;
+  &__description {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9em;
+  }
 }

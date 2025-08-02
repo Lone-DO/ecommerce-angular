@@ -1,19 +1,11 @@
-import {createAction, props} from '@ngrx/store';
-
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-}
+import { createAction, props } from '@ngrx/store';
+import { type iProduct } from '../models';
 
 export const loadProducts = createAction('[Product] Load Products');
 
 export const loadProductsSuccess = createAction(
   '[Product] Load Products Success',
-  props<{ products: Product[] }>()
+  props<{ products: iProduct[] }>()
 );
 
 export const loadProductsFailure = createAction(

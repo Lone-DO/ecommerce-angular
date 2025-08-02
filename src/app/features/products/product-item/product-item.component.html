@@ -1,7 +1,12 @@
-<div *ngIf="product" class="product-item">
-  <h3 class="product-title">{{ product.title }}</h3>
-  <img [src]="product.image" />
-  <p>{{ generateShorterText(product.description) }}</p>
-  <p>{{ product.price | currency }}</p>
-  <div class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</div>
-</div>
+<article *ngIf="product" class="product-item">
+  <h3 class="product-item__title">{{ product.title }}</h3>
+  <img class="product-item__img" [src]="product.image" />
+  <!-- Is Manual Shortening necessary? text-overflow with a set height/width achieves the native behavior -->
+  <p class="product-item__description" [title]="titleAttr">
+    {{ product.description | shortenText }}
+  </p>
+  <p class="product-item__price">{{ product.price | currency }}</p>
+  <button class="add-to-cart-button" (click)="addToCart(product)">
+    Add to Cart
+  </button>
+</article>
