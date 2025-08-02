@@ -4,22 +4,29 @@
 
 .product-list {
   display: grid;
-  grid-template-columns: repeat(1, minmax(300px, 1fr));
   column-gap: 20px;
   grid-template-rows: auto;
-  flex-wrap: wrap;
   gap: 20px;
-  justify-content: center;
   padding: 20px;
+  justify-content: center;
 
-  /** TODO: Refactor to FlexBox */
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  /** TODO: Refactor to Flexbox */
+  &[data-view="list"] {
+    grid-template-columns: repeat(1, minmax(1fr, 1fr));
+    ::ng-deep .product-item {
+      width: 100%;
+    }
   }
-  @media (min-width: 1024px) {
-    grid-template-columns: repeat(4, minmax(300px, 1fr));
-  }
-  @media (min-width: 1280px) {
-    grid-template-columns: repeat(4, minmax(300px, 1fr));
+  &[data-view="grid"] {
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, minmax(300px, 1fr));
+    }
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(4, minmax(300px, 1fr));
+    }
   }
 }

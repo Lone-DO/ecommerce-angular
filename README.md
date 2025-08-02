@@ -62,7 +62,7 @@ We expect you to **critically review the code**, spot things that could be impro
 
 ### 5. 🔄 Toggle List/Grid View (**Bonus**)
 
-Add a toggle switch in the UI that allows the user to change the product display between:
+- [x] Add a toggle switch in the UI that allows the user to change the product display between:
 
 - **Grid view**
 - **List view**

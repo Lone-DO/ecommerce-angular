@@ -3,11 +3,12 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { type AppState } from '../../../store';
 
-import { loadProducts } from './product.actions';
+import { loadProducts, toggleView } from './product.actions';
 import {
   selectAllProducts,
   selectProductsError,
   selectProductsLoading,
+  selectProductsView,
 } from './product.selectors';
 import { type iProduct } from '../models';
 
@@ -27,6 +28,14 @@ export class ProductCoordinator {
 
   selectProductsError$(): Observable<any> {
     return this.store.select(selectProductsError);
+  }
+
+  selectProductsView$(): Observable<string> {
+    return this.store.select(selectProductsView);
+  }
+
+  toggleView(): void {
+    return this.store.dispatch(toggleView());
   }
 
   loadProducts(): void {

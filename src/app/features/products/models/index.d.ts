@@ -9,6 +9,7 @@ export interface iProduct {
 
 export interface iProductState {
   products: iProduct[];
+  view: 'grid' | 'list';
   loading: boolean;
   error: any;
 }

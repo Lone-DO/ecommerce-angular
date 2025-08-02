@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { type iProduct } from '../models';
 
+export const toggleView = createAction('[Product] Toggle Grid View');
 export const loadProducts = createAction('[Product] Load Products');
 
 export const loadProductsSuccess = createAction(
