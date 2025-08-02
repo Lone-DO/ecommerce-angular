@@ -23,6 +23,12 @@ export class CartListComponent {
     this.cartCoordinator.clearCart();
   }
 
+  updateItem(product: CartItem, mode: 'increment' | 'decrement') {
+    const quantity = product.quantity + (mode === 'decrement' ? -1 : 1);
+    if (quantity) return this.cartCoordinator.addToCart(product, quantity);
+    return this.cartCoordinator.removeFromCart(product);
+  }
+
   buyNow(): void {
     // Implement your checkout logic here
     alert('Thank you. Your checkout was completed successfully.');

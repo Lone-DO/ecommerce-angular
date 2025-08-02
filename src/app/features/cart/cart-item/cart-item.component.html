@@ -1,3 +1,9 @@
 <li *ngIf="item" class="cart-item">
-  {{ item.name }} - {{ item.price | currency }} (Qty: {{ item.quantity }})
+  <span>{{ item.name }}</span>
+  <span>- {{ item.price | currency }}</span>
+  <button (click)="onIncrement()">➕</button>
+  <span>(Qty: {{ item.quantity }})</span>
+  <button *ngIf="item.quantity" (click)="onDecrement()">
+    {{ item.quantity > 1 ? "➖" : "🗑️" }}
+  </button>
 </li>

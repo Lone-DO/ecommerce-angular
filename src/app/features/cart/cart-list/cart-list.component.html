@@ -8,7 +8,12 @@
 <ng-container *ngIf="items.length > 0">
   <div class="cart-list">
     <ul>
-      <app-cart-item *ngFor="let item of items" [item]="item"></app-cart-item>
+      <app-cart-item
+        *ngFor="let item of items"
+        [item]="item"
+        (increment)="updateItem(item, 'increment')"
+        (decrement)="updateItem(item, 'decrement')"
+      ></app-cart-item>
     </ul>
   </div>
 
