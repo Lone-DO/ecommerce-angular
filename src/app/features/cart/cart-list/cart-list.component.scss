@@ -1,14 +1,13 @@
-:host {
+section {
   padding: 20px;
 }
 
 .cart-items {
   display: flex;
   justify-content: center;
-}
-
-.cart-items ul {
-  padding: 0;
+  ul {
+    padding: 0;
+  }
 }
 
 .cart-total {

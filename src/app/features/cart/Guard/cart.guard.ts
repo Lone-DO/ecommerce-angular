@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { CartCoordinator } from '../store/cart.coordinator';
 import { CartItem } from '../store/cart.actions';
 import { ToastCoordinator } from '../../toast/store/toast.coordinator';
@@ -9,7 +9,7 @@ import { ToastCoordinator } from '../../toast/store/toast.coordinator';
   providedIn: 'root',
 })
 export class CartGuard implements CanActivate, OnDestroy {
-  cart$$: any;
+  cart$$: Subscription | undefined;
   items: CartItem[] = [];
 
   constructor(
@@ -23,7 +23,7 @@ export class CartGuard implements CanActivate, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.cart$$.unsubscribe();
+    this.cart$$?.unsubscribe();
   }
   canActivate():
     | Observable<boolean | UrlTree>

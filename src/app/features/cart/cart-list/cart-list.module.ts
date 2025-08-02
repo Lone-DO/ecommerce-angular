@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CartItemComponent } from 'src/app/features/cart/cart-item/cart-item.component';
-import { CartListComponent } from 'src/app/features/cart/cart-list/cart-list.component';
+import { CartItemComponent } from '../cart-item/cart-item.component';
+import { CartListComponent } from './cart-list.component';
+import { QuantitySumPipe } from '../pipes/quantity-sum.pipe';
 
 @NgModule({
-  declarations: [CartListComponent, CartItemComponent],
+  declarations: [CartListComponent, CartItemComponent, QuantitySumPipe],
   imports: [CommonModule, RouterModule],
   exports: [CartListComponent, CartItemComponent],
 })

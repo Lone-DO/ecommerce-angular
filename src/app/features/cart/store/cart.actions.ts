@@ -7,6 +7,9 @@ export interface CartItem {
   quantity: number;
 }
 
+/** TODO: Using Redux Dev Tools, It does not appear as though the logs are being registered as intended?
+ * Perhaps unrelated due to current tooling and dependencies
+ */
 export const addToCart = createAction(
   '[Cart] Add to Cart',
   props<{

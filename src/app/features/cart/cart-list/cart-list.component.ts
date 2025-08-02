@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { CartItem } from '../store/cart.actions';
 import { CartCoordinator } from '../store/cart.coordinator';
+import { ToastCoordinator } from '../../toast/store/toast.coordinator';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
@@ -9,14 +11,23 @@ import { CartCoordinator } from '../store/cart.coordinator';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CartListComponent {
+  cart$$: Subscription | undefined;
   items: CartItem[] = [];
   total$: Observable<number> = of(0);
 
-  constructor(private cartCoordinator: CartCoordinator) {
+  constructor(
+    private cartCoordinator: CartCoordinator,
+    private toastCoordinator: ToastCoordinator,
+    private router: Router
+  ) {
     this.total$ = this.cartCoordinator.selectCartTotal$();
-    this.cartCoordinator.selectCartItems$().subscribe((items) => {
+    this.cart$$ = this.cartCoordinator.selectCartItems$().subscribe((items) => {
       this.items = items;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.cart$$?.unsubscribe();
   }
 
   clearCart(): void {
@@ -30,8 +41,12 @@ export class CartListComponent {
   }
 
   buyNow(): void {
-    // Implement your checkout logic here
-    alert('Thank you. Your checkout was completed successfully.');
+    /** TODO: Set a BUSY state to indicate that the page is thinking would help inform user something is happening */
+    this.toastCoordinator.addMessage({
+      message: 'Thank you. Your checkout was completed successfully.',
+      mode: 'success',
+    });
     this.clearCart();
+    setTimeout(() => this.router.navigate(['/']), 3000);
   }
 }
