@@ -2,7 +2,12 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { type AppState } from '../../../store';
-import { addToCart, clearCart, removeFromCart } from './cart.actions';
+import {
+  addToCart,
+  clearCart,
+  removeFromCart,
+  restoreCart,
+} from './cart.actions';
 import { selectCartItems, selectCartTotal } from './cart.selectors';
 import { type iCartItem } from '../models';
 
@@ -20,6 +25,9 @@ export class CartCoordinator {
     return this.store.select(selectCartTotal);
   }
 
+  restoreCart(items: iCartItem[]): void {
+    this.store.dispatch(restoreCart({ items }));
+  }
   addToCart(
     product: { id: number; name: string; price: number },
     quantity?: number

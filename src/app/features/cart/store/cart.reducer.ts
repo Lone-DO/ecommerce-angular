@@ -1,5 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
-import { addToCart, removeFromCart, clearCart } from './cart.actions';
+import {
+  addToCart,
+  removeFromCart,
+  clearCart,
+  restoreCart,
+} from './cart.actions';
 import { type iCartItem, type iCartState } from '../models';
 
 export const initialState: iCartState = {
@@ -12,6 +17,9 @@ function filterItems(items: iCartItem[], target: iCartItem) {
 
 export const cartReducer = createReducer(
   initialState,
+  on(restoreCart, (state, { items }) => {
+    return Array.isArray(items) ? { ...state, items } : state;
+  }),
   on(addToCart, (state, { product, quantity }) => {
     const pendingRemoval = quantity !== undefined && quantity <= 0;
     if (pendingRemoval) {

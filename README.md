@@ -71,10 +71,10 @@ This is a bonus feature and not mandatory, but completing it can demonstrate att
 
 ### 6. 💾 Cart Persistence with localStorage
 
-Ensure that the contents of the cart are **saved in `localStorage`** so that:
+-[x] Ensure that the contents of the cart are **saved in `localStorage`** so that:
 
-- Reloading the page preserves the cart state.
-- Items remain visible in the cart even after a full browser refresh.
+- [x] Reloading the page preserves the cart state.
+- [x] Items remain visible in the cart even after a full browser refresh.
 
 ### 7. 🧩 Lazy Load Cart Module + Route Restriction
 
