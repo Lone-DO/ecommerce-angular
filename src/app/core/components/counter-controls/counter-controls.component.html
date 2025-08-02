@@ -1,0 +1,17 @@
+<fieldset>
+  <button
+    title="decrement quantity"
+    aria-label="decrement quantity"
+    (click)="onDecrement()"
+  >
+    {{ counter > 1 ? "➖" : "🗑️" }}
+  </button>
+  <span>(Qty: {{ counter }})</span>
+  <button
+    title="increment quantity"
+    aria-label="increment quantity"
+    (click)="onIncrement()"
+  >
+    ➕
+  </button>
+</fieldset>

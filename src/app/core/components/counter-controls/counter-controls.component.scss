@@ -1,0 +1,11 @@
+fieldset {
+  gap: 0.5rem;
+  display: flex;
+  border-radius: 8px;
+  border: #dd0031 solid 1px;
+  button {
+    width: 1rem;
+    padding: 0;
+    background-color: transparent;
+  }
+}

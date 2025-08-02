@@ -5,10 +5,17 @@ import { ProductEffects } from '../store/product.effects';
 import { ProductListComponent } from './product-list.component';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { ShortenTextPipe } from '../pipes/shorten-text.pipe';
+import { CartListModule } from '../../cart/cart-list/cart-list.module';
+import { SharedModule } from '../../../core/core.module';
 
 @NgModule({
   declarations: [ProductListComponent, ProductItemComponent, ShortenTextPipe],
-  imports: [CommonModule, EffectsModule.forFeature([ProductEffects])],
+  imports: [
+    CommonModule,
+    EffectsModule.forFeature([ProductEffects]),
+    CartListModule,
+    SharedModule,
+  ],
   exports: [ProductListComponent, ProductItemComponent],
 })
 export class ProductListModule {}

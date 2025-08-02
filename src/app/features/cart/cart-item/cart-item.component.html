@@ -3,21 +3,9 @@
     <h3>{{ item.name }}</h3>
     <span>{{ item.price | quantitySum : item.quantity | currency }}</span>
   </div>
-  <fieldset>
-    <button
-      title="decrement quantity"
-      aria-label="decrement quantity"
-      (click)="onDecrement()"
-    >
-      {{ item.quantity > 1 ? "➖" : "🗑️" }}
-    </button>
-    <span>(Qty: {{ item.quantity }})</span>
-    <button
-      title="increment quantity"
-      aria-label="increment quantity"
-      (click)="onIncrement()"
-    >
-      ➕
-    </button>
-  </fieldset>
+  <app-counter-controls
+    [counter]="item.quantity"
+    (increment)="onIncrement()"
+    (decrement)="onDecrement()"
+  ></app-counter-controls>
 </li>
