@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CartItem } from '../store/cart.actions';
+import { type iCartItem } from '../models';
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent {
-  @Input() item: CartItem | null = null;
+  @Input() item: iCartItem | null = null;
   @Input() hideData: boolean = false;
   @Output() decrement: EventEmitter<void> = new EventEmitter();
   @Output() increment: EventEmitter<void> = new EventEmitter();

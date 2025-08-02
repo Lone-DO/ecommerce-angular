@@ -2,15 +2,15 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { CartCoordinator } from '../store/cart.coordinator';
-import { CartItem } from '../store/cart.actions';
 import { ToastCoordinator } from '../../toast/store/toast.coordinator';
+import { type iCartItem } from '../models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartGuard implements CanActivate, OnDestroy {
   cart$$: Subscription | undefined;
-  items: CartItem[] = [];
+  items: iCartItem[] = [];
 
   constructor(
     private cartCoordinator: CartCoordinator,

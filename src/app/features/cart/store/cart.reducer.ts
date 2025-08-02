@@ -1,15 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { addToCart, removeFromCart, CartItem, clearCart } from './cart.actions';
+import { addToCart, removeFromCart, clearCart } from './cart.actions';
+import { type iCartItem, type iCartState } from '../models';
 
-export interface CartState {
-  items: CartItem[];
-}
-
-export const initialState: CartState = {
+export const initialState: iCartState = {
   items: [],
 };
 
-function filterItems(items: CartItem[], target: CartItem) {
+function filterItems(items: iCartItem[], target: iCartItem) {
   return items.filter((item) => item.id !== target.id);
 }
 
@@ -18,7 +15,7 @@ export const cartReducer = createReducer(
   on(addToCart, (state, { product, quantity }) => {
     const pendingRemoval = quantity !== undefined && quantity <= 0;
     if (pendingRemoval) {
-      const items = filterItems(state.items, product as CartItem);
+      const items = filterItems(state.items, product as iCartItem);
       return { ...state, items };
     }
 
@@ -29,7 +26,7 @@ export const cartReducer = createReducer(
       items = [...state.items, { ...product, quantity: 1 }];
     } else {
       const updated = [...state.items];
-      const target: CartItem = state.items[index];
+      const target: iCartItem = state.items[index];
       updated[index] = {
         ...target,
         quantity: quantity || target.quantity + 1,
@@ -40,7 +37,7 @@ export const cartReducer = createReducer(
   }),
 
   on(removeFromCart, (state, { product }) => {
-    const items = filterItems(state.items, product as CartItem);
+    const items = filterItems(state.items, product as iCartItem);
     return { ...state, items };
   }),
 

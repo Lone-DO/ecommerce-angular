@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { type AppState } from '../../../store';
-import { addToCart, CartItem, clearCart, removeFromCart } from './cart.actions';
+import { addToCart, clearCart, removeFromCart } from './cart.actions';
 import { selectCartItems, selectCartTotal } from './cart.selectors';
+import { type iCartItem } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import { selectCartItems, selectCartTotal } from './cart.selectors';
 export class CartCoordinator {
   constructor(private store: Store<AppState>) {}
 
-  selectCartItems$(): Observable<CartItem[]> {
+  selectCartItems$(): Observable<iCartItem[]> {
     return this.store.select(selectCartItems);
   }
 

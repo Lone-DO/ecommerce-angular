@@ -1,12 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 
-export interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-}
-
 /** TODO: Using Redux Dev Tools, It does not appear as though the logs are being registered as intended?
  * Perhaps unrelated due to current tooling and dependencies
  */

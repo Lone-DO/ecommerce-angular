@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
-import { CartItem } from '../store/cart.actions';
 import { CartCoordinator } from '../store/cart.coordinator';
 import { ToastCoordinator } from '../../toast/store/toast.coordinator';
 import { Router } from '@angular/router';
+import { type iCartItem } from '../models';
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CartListComponent {
   cart$$: Subscription | undefined;
-  items: CartItem[] = [];
+  items: iCartItem[] = [];
   total$: Observable<number> = of(0);
 
   constructor(
@@ -34,7 +34,7 @@ export class CartListComponent {
     this.cartCoordinator.clearCart();
   }
 
-  updateItem(product: CartItem, mode: 'increment' | 'decrement') {
+  updateItem(product: iCartItem, mode: 'increment' | 'decrement') {
     const quantity = product.quantity + (mode === 'decrement' ? -1 : 1);
     if (quantity) return this.cartCoordinator.addToCart(product, quantity);
     return this.cartCoordinator.removeFromCart(product);
