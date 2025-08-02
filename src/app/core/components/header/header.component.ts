@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CartItem } from 'src/app/features/cart/store/cart.actions';
 import { CartCoordinator } from 'src/app/features/cart/store/cart.coordinator';
 
@@ -8,7 +9,7 @@ import { CartCoordinator } from 'src/app/features/cart/store/cart.coordinator';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnDestroy {
-  cart$$: any;
+  cart$$: Subscription | undefined;
   cartItems: CartItem[] = [];
 
   constructor(public cartCoordinator: CartCoordinator) {
@@ -18,6 +19,6 @@ export class HeaderComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.cart$$.unsubscribe();
+    this.cart$$?.unsubscribe();
   }
 }
