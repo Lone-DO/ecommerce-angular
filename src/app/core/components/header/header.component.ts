@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CartItem } from 'src/app/features/cart/store/cart.actions';
-import { CartCoordinator } from 'src/app/features/cart/store/cart.coordinator';
+import { type iCartItem } from '../../../features/cart/models';
+import { CartCoordinator } from '../../../features/cart/store/cart.coordinator';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,7 @@ import { CartCoordinator } from 'src/app/features/cart/store/cart.coordinator';
 })
 export class HeaderComponent implements OnDestroy {
   cart$$: Subscription | undefined;
-  cartItems: CartItem[] = [];
+  cartItems: iCartItem[] = [];
 
   constructor(public cartCoordinator: CartCoordinator) {
     this.cart$$ = this.cartCoordinator.selectCartItems$().subscribe((items) => {
