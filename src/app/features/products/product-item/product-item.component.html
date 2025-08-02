@@ -6,7 +6,17 @@
     {{ product.description | shortenText }}
   </p>
   <p class="product-item__price">{{ product.price | currency }}</p>
-  <button class="add-to-cart-button" (click)="addToCart(product)">
+  <button
+    *ngIf="!cartItem"
+    class="add-to-cart-button"
+    (click)="addToCart(product)"
+  >
     Add to Cart
   </button>
+  <app-counter-controls
+    *ngIf="cartItem"
+    [counter]="cartItem.quantity"
+    (increment)="updateItem('increment')"
+    (decrement)="updateItem('decrement')"
+  ></app-counter-controls>
 </article>

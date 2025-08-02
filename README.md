@@ -54,7 +54,7 @@ We expect you to **critically review the code**, spot things that could be impro
 
 ### 3. 🔢 Item Quantity Counter
 
-In the product list, show a counter (badge or text) on each item card that reflects how many units of that item have been added to the cart.
+- [x] In the product list, show a counter (badge or text) on each item card that reflects how many units of that item have been added to the cart.
 
 ### 4. 📌 Fixed Header
 
