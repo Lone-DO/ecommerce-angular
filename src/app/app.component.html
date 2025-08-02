@@ -11,11 +11,7 @@
 <app-header></app-header>
 
 <main class="content">
-  <app-toast
-    *ngFor="let toast of toastMessages"
-    [toast]="toast"
-    (expired)="clearToast($event)"
-  ></app-toast>
+  <app-toast-list></app-toast-list>
   <app-rocket-banner [title]="title"></app-rocket-banner>
   <router-outlet></router-outlet>
 </main>

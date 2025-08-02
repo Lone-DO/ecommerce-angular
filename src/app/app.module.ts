@@ -9,17 +9,23 @@ import { AppComponent } from './app.component';
 import { reducers } from './store';
 import { ProductEffects } from './features/products/store/product.effects';
 import { ProductsModule } from './features/products/products.module';
-import { ToastComponent } from './core/components/toast/toast.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { RocketBannerComponent } from './core/components/rocket-banner/rocket-banner.component';
+import { ToastModule } from './features/toast/toast.module';
 
 @NgModule({
-  declarations: [AppComponent, ToastComponent, HeaderComponent, FooterComponent, RocketBannerComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    RocketBannerComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ProductsModule,
+    ToastModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductEffects]),

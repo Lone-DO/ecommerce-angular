@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../store/product.actions';
 import { CartCoordinator } from '../../cart/store/cart.coordinator';
-import { ToastCoordinator } from 'src/app/core/store/toast/toast.coordinator';
+import { ToastCoordinator } from '../../toast/store/toast.coordinator';
 
 @Component({
   selector: 'app-product-item',

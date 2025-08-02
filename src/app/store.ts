@@ -4,7 +4,7 @@ import {
   productReducer,
   ProductState,
 } from './features/products/store/product.reducer';
-import { toastReducer, ToastState } from './core/store/toast/toast.reducer';
+import { toastReducer, ToastState } from './features/toast/store/toast.reducer';
 
 export interface AppState {
   cart: CartState;

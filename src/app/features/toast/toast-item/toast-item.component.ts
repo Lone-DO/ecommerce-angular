@@ -8,15 +8,15 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { iToastItem } from '../../store/toast/toast.actions';
-import { ToastCoordinator } from '../../store/toast/toast.coordinator';
+import { ToastCoordinator } from '../store/toast.coordinator';
+import { iToastItem } from '../store/toast.actions';
 
 @Component({
-  selector: 'app-toast',
-  templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.scss'],
+  selector: 'app-toast-item',
+  templateUrl: './toast-item.component.html',
+  styleUrls: ['./toast-item.component.scss'],
 })
-export class ToastComponent implements OnDestroy, OnInit {
+export class ToastItemComponent implements OnDestroy, OnInit {
   @Input() toast: iToastItem | undefined;
   @ViewChild('dialog') $el: ElementRef<HTMLDialogElement> | undefined;
   @Output() expired: EventEmitter<iToastItem> = new EventEmitter();
@@ -30,7 +30,7 @@ export class ToastComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
     if (this.toast) {
       this.timer = setTimeout(
-        () => this.expired.emit(this.toast),
+        () => this.toastCoordinator.removeMessage(this.toast as iToastItem),
         this.toast.duration || 3000
       );
     }
