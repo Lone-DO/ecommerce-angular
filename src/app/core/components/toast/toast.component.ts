@@ -28,12 +28,12 @@ export class ToastComponent implements OnDestroy, OnInit {
     this.$el?.nativeElement.close();
   }
   ngOnInit(): void {
-    // if (this.toast) {
-    //   this.timer = setTimeout(
-    //     () => this.expired.emit(this.toast),
-    //     this.toast.duration || 5000
-    //   );
-    // }
+    if (this.toast) {
+      this.timer = setTimeout(
+        () => this.expired.emit(this.toast),
+        this.toast.duration || 3000
+      );
+    }
   }
   ngOnDestroy(): void {
     clearTimeout(this.timer);
