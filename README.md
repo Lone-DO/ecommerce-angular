@@ -78,10 +78,9 @@ Ensure that the contents of the cart are **saved in `localStorage`** so that:
 
 ### 7. 🧩 Lazy Load Cart Module + Route Restriction
 
-- [x] Convert the **Cart module** into a **lazy-loaded module**.
-      -[] Add a restriction: if the cart is **empty**, redirect the user to a new **"Page Not Found" module**, which must also be lazy-loaded.
-  - [] Create a proper 404 route for this module.
-  - [] If the user tries to access the cart with no items, redirect them to `/not-found` or similar.
+- [x] Convert the **Cart module** into a **lazy-loaded module**. -[x] Add a restriction: if the cart is **empty**, redirect the user to a new **"Page Not Found" module**, which must also be lazy-loaded.
+  - [x] Create a proper 404 route for this module.
+  - [x] If the user tries to access the cart with no items, redirect them to `/not-found` or similar.
 
 ---
 

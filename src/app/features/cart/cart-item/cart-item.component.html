@@ -1,9 +1,24 @@
 <li *ngIf="item" class="cart-item">
-  <span>{{ item.name }}</span>
-  <span>- {{ item.price | currency }}</span>
-  <button (click)="onIncrement()">➕</button>
-  <span>(Qty: {{ item.quantity }})</span>
-  <button *ngIf="item.quantity" (click)="onDecrement()">
-    {{ item.quantity > 1 ? "➖" : "🗑️" }}
-  </button>
+  <div *ngIf="!hideData" class="cart-item__data">
+    <h3>{{ item.name }}</h3>
+    <!-- Add PIPE for multiplying item specific total -->
+    <span>{{ item.price | currency }}</span>
+  </div>
+  <fieldset>
+    <button
+      aria-label="decrement quantity"
+      data-action="onDecrement"
+      (click)="onDecrement()"
+    >
+      {{ item.quantity > 1 ? "➖" : "🗑️" }}
+    </button>
+    <span>(Qty: {{ item.quantity }})</span>
+    <button
+      aria-label="increment quantity"
+      data-action="onIncrement"
+      (click)="onIncrement()"
+    >
+      ➕
+    </button>
+  </fieldset>
 </li>
