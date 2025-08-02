@@ -2,13 +2,9 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { type AppState } from '../../../store';
-import {
-  addMessage,
-  type iToastItem,
-  clearMessages,
-  removeMessage,
-} from './toast.actions';
+import { addMessage, clearMessages, removeMessage } from './toast.actions';
 import { selectToastMessages } from './toast.selectors';
+import { type iToastItem } from '../models';
 
 @Injectable({
   providedIn: 'root',

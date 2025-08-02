@@ -1,4 +1,24 @@
+/** Mixins Could be stored in a global/core assets directory*/
+@mixin ToastTheme($color) {
+  border: rgba($color, $alpha: 0.5) 1px solid;
+  color: $color;
+}
+
 dialog {
   z-index: 1;
   position: fixed;
+  width: 100%;
+  max-width: 500px;
+  &[data-type="info"] {
+    @include ToastTheme(blue);
+  }
+  &[data-type="error"] {
+    @include ToastTheme(#dd0031);
+  }
+  &[data-type="warning"] {
+    @include ToastTheme(yellow);
+  }
+  &[data-type="success"] {
+    @include ToastTheme(green);
+  }
 }

@@ -1,9 +1,9 @@
-import {createFeatureSelector, createSelector} from '@ngrx/store';
-import {ToastState} from './toast.reducer';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { type iToastState } from '../models';
 
-export const selectToastState = createFeatureSelector<ToastState>('toast');
+export const selectToastState = createFeatureSelector<iToastState>('toast');
 
-export const selectToastMessages= createSelector(
+export const selectToastMessages = createSelector(
   selectToastState,
-  (state: ToastState) => state.messages
+  (state: iToastState) => state.messages
 );

@@ -1,6 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ToastCoordinator } from '../store/toast.coordinator';
-import { iToastItem } from '../store/toast.actions';
+import { type Subscription } from 'rxjs';
+import { type iToastItem } from '../models';
 
 @Component({
   selector: 'app-toast-list',
@@ -8,10 +9,11 @@ import { iToastItem } from '../store/toast.actions';
   styleUrls: ['./toast-list.component.scss'],
 })
 export class ToastListComponent implements OnDestroy {
-  toast$$: any;
-
+  toast$$: Subscription | undefined;
   toastMessages: iToastItem[] = [];
-
+  /** TODO: Use a single instance of HTMLDialogElement, and propagate latest toast message instead of generating multiple?
+   * Would avoid overlapping toast
+   */
   constructor(public toastCoordinator: ToastCoordinator) {
     this.toast$$ = this.toastCoordinator
       .selectMessages$()
@@ -20,11 +22,11 @@ export class ToastListComponent implements OnDestroy {
       });
   }
 
-  clearToast(toast: iToastItem) {
-    this.toastCoordinator.removeMessage(toast);
+  ngOnDestroy(): void {
+    this.toast$$?.unsubscribe();
   }
 
-  ngOnDestroy(): void {
-    this.toast$$.unsubscribe();
+  clearToast(toast: iToastItem) {
+    this.toastCoordinator.removeMessage(toast);
   }
 }

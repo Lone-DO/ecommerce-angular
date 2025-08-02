@@ -9,7 +9,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ToastCoordinator } from '../store/toast.coordinator';
-import { iToastItem } from '../store/toast.actions';
+import { type iToastItem } from '../models';
 
 @Component({
   selector: 'app-toast-item',
@@ -23,10 +23,6 @@ export class ToastItemComponent implements OnDestroy, OnInit {
   timer: NodeJS.Timeout | undefined;
 
   constructor(public toastCoordinator: ToastCoordinator) {}
-  dismiss() {
-    // @ts-ignore outdated typescript compiler does not recognize native handlers for dialog element
-    this.$el?.nativeElement.close();
-  }
   ngOnInit(): void {
     if (this.toast) {
       this.timer = setTimeout(
@@ -37,5 +33,9 @@ export class ToastItemComponent implements OnDestroy, OnInit {
   }
   ngOnDestroy(): void {
     clearTimeout(this.timer);
+  }
+  dismiss() {
+    // @ts-ignore outdated typescript compiler does not recognize native handlers for dialog element
+    this.$el?.nativeElement.close();
   }
 }
