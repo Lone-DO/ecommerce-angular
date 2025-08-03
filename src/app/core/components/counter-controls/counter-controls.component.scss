@@ -1,8 +1,12 @@
 fieldset {
   gap: 0.5rem;
   display: flex;
+  align-items: center;
+  height: 36px;
   border-radius: 8px;
+  width: fit-content;
   border: #dd0031 solid 1px;
+
   button {
     width: 1rem;
     padding: 0;

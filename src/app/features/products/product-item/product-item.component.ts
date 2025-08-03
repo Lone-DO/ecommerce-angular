@@ -13,6 +13,7 @@ import { selectCartItem } from '../../cart/store/cart.selectors';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: iProduct | undefined;
+  @Input() view: string = 'grid';
   cartItem: iCartItem | undefined;
   titleAttr: string = '';
 

@@ -26,6 +26,7 @@
     <app-product-item
       *ngFor="let product of products$ | async"
       [product]="product"
+      [view]="view"
     >
     </app-product-item>
   </div>

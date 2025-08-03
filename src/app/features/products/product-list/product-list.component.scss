@@ -1,32 +1,34 @@
-::-moz-selection {
-  padding: 20px;
-}
-
 .product-list {
-  display: grid;
-  column-gap: 20px;
-  grid-template-rows: auto;
+  display: flex;
   gap: 20px;
   padding: 20px;
+  max-width: 960px;
   justify-content: center;
-
+  ::ng-deep .product-item {
+    width: 100%;
+  }
   /** TODO: Refactor to Flexbox */
   &[data-view="list"] {
-    grid-template-columns: repeat(1, minmax(1fr, 1fr));
-    ::ng-deep .product-item {
-      width: 100%;
-    }
+    flex-direction: column;
   }
   &[data-view="grid"] {
-    grid-template-columns: repeat(1, minmax(300px, 1fr));
-    @media (min-width: 640px) {
-      grid-template-columns: repeat(2, minmax(250px, 1fr));
-    }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(4, minmax(300px, 1fr));
-    }
-    @media (min-width: 1280px) {
-      grid-template-columns: repeat(4, minmax(300px, 1fr));
+    flex-wrap: wrap;
+    > * {
+      flex: 100%;
+      @media (min-width: 640px) {
+        flex: 40%;
+      }
+      @media (min-width: 1024px) {
+        flex: 30%;
+      }
+      @media (min-width: 1280px) {
+        flex: 20%;
+      }
     }
   }
+}
+
+header fieldset {
+  margin: auto;
+  width: fit-content;
 }

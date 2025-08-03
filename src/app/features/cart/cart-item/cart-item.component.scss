@@ -10,6 +10,7 @@
   justify-content: space-between;
 
   &__data {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -28,5 +29,9 @@
       flex-basis: 100px;
       text-align: right;
     }
+  }
+
+  &__controls {
+    flex: 100%;
   }
 }
