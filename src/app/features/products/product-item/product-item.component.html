@@ -1,0 +1,36 @@
+<article *ngIf="product" class="product-item" [attr.data-view]="view">
+  <ng-container *ngIf="view === 'list'">
+    <div class="product-item__left">
+      <img class="product-item__img" [src]="product.image" />
+    </div>
+    <div class="product-item__right">
+      <h3 class="product-item__title">{{ product.title }}</h3>
+      <p class="product-item__description" [title]="titleAttr">
+        {{ product.description | shortenText }}
+      </p>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="view !== 'list'">
+    <h3 class="product-item__title">{{ product.title }}</h3>
+    <img class="product-item__img" [src]="product.image" />
+    <!-- Is Manual Shortening necessary? text-overflow with a set height/width achieves the native behavior -->
+    <p class="product-item__description" [title]="titleAttr">
+      {{ product.description | shortenText }}
+    </p>
+  </ng-container>
+  <p class="product-item__price">{{ product.price | currency }}</p>
+  <button
+    *ngIf="!cartItem"
+    class="add-to-cart-button"
+    (click)="addToCart(product)"
+  >
+    Add to Cart
+  </button>
+  <app-counter-controls
+    *ngIf="cartItem"
+    class="product-item__controls"
+    [counter]="cartItem.quantity"
+    (increment)="updateItem('increment')"
+    (decrement)="updateItem('decrement')"
+  ></app-counter-controls>
+</article>

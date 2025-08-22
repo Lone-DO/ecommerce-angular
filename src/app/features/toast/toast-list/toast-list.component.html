@@ -1,0 +1,5 @@
+<app-toast-item
+  *ngFor="let toast of toastMessages"
+  [toast]="toast"
+  (expired)="clearToast($event)"
+></app-toast-item>

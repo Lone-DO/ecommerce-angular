@@ -12,6 +12,7 @@ Thank you for your interest in joining our team! This take-home test is designed
 ## 🛒 Project Overview
 
 You will be working on a **simple e-commerce Angular application**. The app contains:
+
 - A list of products
 - A shopping cart
 
@@ -32,6 +33,7 @@ You will have **24 hours** (from the moment you have received the email with the
 The application contains some **existing bugs** that affect user experience, styling, performance, accessibility or break best practices. Part of this challenge is to **identify and fix these bugs proactively**.
 
 Examples of potential issues include:
+
 - Non-responsive or broken UI elements
 - Performance bottlenecks
 - Anti-patterns or poor code practices
@@ -43,34 +45,42 @@ We expect you to **critically review the code**, spot things that could be impro
 ## ✅ What Needs to Be Done
 
 ### 1. 🗑️ Cart Item Deletion
-Allow users to remove individual items from the cart.
+
+-[x] Allow users to remove individual items from the cart.
 
 ### 2. ✅ Add-To-Cart Feedback
-When a product is added to the cart, show a success notification (e.g., a **Snackbar** or a similar toast mechanism).
+
+- [x] When a product is added to the cart, show a success notification (e.g., a **Snackbar** or a similar toast mechanism).
 
 ### 3. 🔢 Item Quantity Counter
-In the product list, show a counter (badge or text) on each item card that reflects how many units of that item have been added to the cart.
+
+- [x] In the product list, show a counter (badge or text) on each item card that reflects how many units of that item have been added to the cart.
 
 ### 4. 📌 Fixed Header
-Make the header persistent so that it **stays visible while scrolling**.
+
+- [x] Make the header persistent so that it **stays visible while scrolling**.
 
 ### 5. 🔄 Toggle List/Grid View (**Bonus**)
-Add a toggle switch in the UI that allows the user to change the product display between:
+
+- [x] Add a toggle switch in the UI that allows the user to change the product display between:
+
 - **Grid view**
 - **List view**
 
 This is a bonus feature and not mandatory, but completing it can demonstrate attention to UX and flexibility in Angular component design.
 
 ### 6. 💾 Cart Persistence with localStorage
-Ensure that the contents of the cart are **saved in `localStorage`** so that:
-- Reloading the page preserves the cart state.
-- Items remain visible in the cart even after a full browser refresh.
+
+-[x] Ensure that the contents of the cart are **saved in `localStorage`** so that:
+
+- [x] Reloading the page preserves the cart state.
+- [x] Items remain visible in the cart even after a full browser refresh.
 
 ### 7. 🧩 Lazy Load Cart Module + Route Restriction
-- Convert the **Cart module** into a **lazy-loaded module**.
-- Add a restriction: if the cart is **empty**, redirect the user to a new **"Page Not Found" module**, which must also be lazy-loaded.
-  - Create a proper 404 route for this module.
-  - If the user tries to access the cart with no items, redirect them to `/not-found` or similar.
+
+- [x] Convert the **Cart module** into a **lazy-loaded module**. -[x] Add a restriction: if the cart is **empty**, redirect the user to a new **"Page Not Found" module**, which must also be lazy-loaded.
+  - [x] Create a proper 404 route for this module.
+  - [x] If the user tries to access the cart with no items, redirect them to `/not-found` or similar.
 
 ---
 
@@ -105,7 +115,3 @@ We’re excited to see how you approach the challenge. Feel free to include any 
 
 Happy coding! 🚀
 ```
-
-
-
-

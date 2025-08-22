@@ -1,0 +1,27 @@
+<section>
+  <header>
+    <h2 class="page-title">Shopping Cart</h2>
+  </header>
+
+  <div *ngIf="!items?.length">
+    <p class="empty-state">Your cart is empty.</p>
+    <a class="buy-button button-link" routerLink="/"> Search Products </a>
+  </div>
+
+  <ng-container *ngIf="items.length">
+    <ul class="cart-list">
+      <app-cart-item
+        *ngFor="let item of items"
+        [item]="item"
+        (increment)="updateItem(item, 'increment')"
+        (decrement)="updateItem(item, 'decrement')"
+      ></app-cart-item>
+    </ul>
+
+    <div class="checkout">
+      <h3>Total: {{ total$ | async | currency }}</h3>
+
+      <button class="buy-button" (click)="buyNow()">Proceed to checkout</button>
+    </div>
+  </ng-container>
+</section>

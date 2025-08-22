@@ -1,0 +1,33 @@
+<section>
+  <header>
+    <h2 class="page-title">Products</h2>
+    <fieldset>
+      <label for="product-view">Grid View</label>
+      <input
+        id="product-view"
+        type="checkbox"
+        [checked]="isGrid"
+        (click)="toggleView()"
+      />
+    </fieldset>
+  </header>
+
+  <span *ngIf="loading$ | async" class="loading">Loading products...</span>
+
+  <span *ngIf="error$ | async as error" class="error">
+    Error loading products: {{ error }}
+  </span>
+
+  <div
+    class="product-list"
+    *ngIf="!(loading$ | async) && !(error$ | async)"
+    [attr.data-view]="view"
+  >
+    <app-product-item
+      *ngFor="let product of products$ | async"
+      [product]="product"
+      [view]="view"
+    >
+    </app-product-item>
+  </div>
+</section>

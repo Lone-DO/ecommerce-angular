@@ -1,0 +1,13 @@
+<li *ngIf="item" class="cart-item">
+  <div *ngIf="!hideData" class="cart-item__data">
+    <h3>{{ item.name }}</h3>
+    <span>{{ item.price | quantitySum : item.quantity | currency }}</span>
+  </div>
+  <div class="cart-item__controls">
+    <app-counter-controls
+      [counter]="item.quantity"
+      (increment)="onIncrement()"
+      (decrement)="onDecrement()"
+    ></app-counter-controls>
+  </div>
+</li>
