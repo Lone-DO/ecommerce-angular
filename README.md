@@ -1,117 +1,75 @@
-# FeTakehomeV1
+# Ecommerce Angular@14
 
----
+This project architecture was generated using [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
 
-```markdown
-# 🧪 Angular Take-Home Challenge - Senior Frontend Developer
-
-Thank you for your interest in joining our team! This take-home test is designed to evaluate your Angular skills in a practical way, while giving you space to demonstrate best practices, attention to detail, and your ability to write maintainable and scalable code.
-
----
-
-## 🛒 Project Overview
-
-You will be working on a **simple e-commerce Angular application**. The app contains:
-
-- A list of products
-- A shopping cart
-
-Your task will be to **fix existing bugs** and **implement a few new features**. Some challenges are straightforward, while others are designed to test your architectural thinking and Angular mastery.
-
-P.s: be aware of the version of Angular in this project.
-
----
-
-## ⏱️ Timeframe
-
-You will have **24 hours** (from the moment you have received the email with the challenge) to complete the challenge and send it back. Please respect this timebox, as it simulates realistic time constraints.
-
----
-
-## 🐞 Bugs to Fix
-
-The application contains some **existing bugs** that affect user experience, styling, performance, accessibility or break best practices. Part of this challenge is to **identify and fix these bugs proactively**.
-
-Examples of potential issues include:
-
-- Non-responsive or broken UI elements
-- Performance bottlenecks
-- Anti-patterns or poor code practices
-
-We expect you to **critically review the code**, spot things that could be improved, and apply changes accordingly. This will be considered a strong signal of your senior-level experience.
-
----
-
-## ✅ What Needs to Be Done
-
-### 1. 🗑️ Cart Item Deletion
-
--[x] Allow users to remove individual items from the cart.
-
-### 2. ✅ Add-To-Cart Feedback
-
-- [x] When a product is added to the cart, show a success notification (e.g., a **Snackbar** or a similar toast mechanism).
-
-### 3. 🔢 Item Quantity Counter
-
-- [x] In the product list, show a counter (badge or text) on each item card that reflects how many units of that item have been added to the cart.
-
-### 4. 📌 Fixed Header
-
-- [x] Make the header persistent so that it **stays visible while scrolling**.
-
-### 5. 🔄 Toggle List/Grid View (**Bonus**)
-
-- [x] Add a toggle switch in the UI that allows the user to change the product display between:
-
-- **Grid view**
-- **List view**
-
-This is a bonus feature and not mandatory, but completing it can demonstrate attention to UX and flexibility in Angular component design.
-
-### 6. 💾 Cart Persistence with localStorage
-
--[x] Ensure that the contents of the cart are **saved in `localStorage`** so that:
-
-- [x] Reloading the page preserves the cart state.
-- [x] Items remain visible in the cart even after a full browser refresh.
-
-### 7. 🧩 Lazy Load Cart Module + Route Restriction
-
-- [x] Convert the **Cart module** into a **lazy-loaded module**. -[x] Add a restriction: if the cart is **empty**, redirect the user to a new **"Page Not Found" module**, which must also be lazy-loaded.
-  - [x] Create a proper 404 route for this module.
-  - [x] If the user tries to access the cart with no items, redirect them to `/not-found` or similar.
-
----
-
-## 🧪 What We’re Evaluating
-
-- Code readability and maintainability
-- Angular architecture decisions
-- Use of Angular best practices (RxJS, change detection strategy, component design, etc.)
-- UI/UX execution and attention to detail
-- Bonus: Use of testing (unit tests or basic integration tests, if possible)
-- Ability to proactively identify and fix bugs or weak points in the code
-
----
-
-## 🚀 How to Deliver
+Purpose of this project is to learn how hooks, services, pipes and other various reactive events work in Angular.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To start a local development server, run:
 
-1. Download the zipped folder.
-2. Complete the tasks.
-3. Save your changes.
-4. Zip the folder.
-5. Share the result with us by email once you're done.
-
----
-
-## 🙌 Good Luck!
-
-We’re excited to see how you approach the challenge. Feel free to include any notes or considerations you think are important.
-
-Happy coding! 🚀
+```bash
+ng serve
 ```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## GH-Pages Deploy
+
+To build the project run:
+
+```bash
+ng deploy
+```
+
+This will automatically compile your project and deploy the build artifacts to the `origin/gh-pages` branch.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# Resources
+
+- Styling based on [Community Figma](https://www.figma.com/design/1VMMwMsxQ2dj7EQFfAED0c) "Minimal To-do List App"
